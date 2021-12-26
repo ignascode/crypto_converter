@@ -59,7 +59,7 @@ const BtcUsdConverter = () => {
 		return () => {
 			clearIntervalAsync(interval);
 		}
-	}, []);
+	}, [btcUsdRate, loading]);
 
 	useEffect(() => {
 		if (btcUsdRate) {
