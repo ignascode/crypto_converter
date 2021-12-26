@@ -1,4 +1,4 @@
-# Getting Started with Crypto Converter
+# Getting Started with BTC/USD Converter
 
 This project was bootstrapped with
 [Create React App](https://github.com/facebook/create-react-app).
