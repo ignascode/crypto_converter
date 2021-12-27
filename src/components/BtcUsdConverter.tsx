@@ -30,16 +30,6 @@ const BtcUsdConverter = () => {
 	const prevAmount = usePrevious(btcUsdRate);
 
 	useEffect(() => {
-		if (prevAmount <= btcUsdRate) {
-			setArrowIcon('up');
-		} else {
-			setArrowIcon('down');
-		}
-	}, [btcUsdRate, prevAmount]);
-
-
-
-	useEffect(() => {
 		const getBtcUsdRate = async () => {
 			try {
 				const getData = await axios.get(
@@ -47,6 +37,11 @@ const BtcUsdConverter = () => {
 				);
 				const rate = Number(getData.data.data.amount);
 				if (btcUsdRate !== rate) setBtcUsdRate(rate);
+				if (prevAmount < btcUsdRate) {
+					setArrowIcon('up');
+				} else {
+					setArrowIcon('down');
+				}
 				if (loading) setLoading(false);
 			} catch {
 				setErrorMsg('Price was not received from server');
